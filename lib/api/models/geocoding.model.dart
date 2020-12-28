@@ -1,6 +1,7 @@
 class GeocodingModel {
   double latitude;
   double longitude;
+  double magnitude;
   String placeName;
 
   GeocodingModel({

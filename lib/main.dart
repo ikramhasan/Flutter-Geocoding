@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mapbox_test/blocs/forward_geocoding.bloc.dart';
 import 'package:mapbox_test/blocs/geocoding.bloc.dart';
-import 'package:mapbox_test/screens/home.dart';
+import 'package:mapbox_test/screens/map.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    BlocProvider<GeocodingBloc>(
-      create: (context) => GeocodingBloc(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<GeocodingBloc>(
+          create: (context) => GeocodingBloc(),
+        ),
+        BlocProvider<ForwardGeocodingBloc>(
+          create: (context) => ForwardGeocodingBloc(),
+        ),
+      ],
       child: App(),
     ),
   );
@@ -18,13 +26,13 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Mapbox',
+      title: 'Earthquake Visualizer',
       theme: ThemeData(
         brightness: Brightness.dark,
         canvasColor: Colors.black,
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: MapScreen(),
     );
   }
 }

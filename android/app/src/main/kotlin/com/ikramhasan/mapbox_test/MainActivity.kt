@@ -1,4 +1,4 @@
-package com.ikramhasan.mapbox_test
+package com.ikramhasan.geolocation
 
 import io.flutter.embedding.android.FlutterActivity
 

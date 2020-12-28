@@ -12,12 +12,12 @@ void main() {
     'mapbox api',
     () {
       test(
-        'geocoding response',
+        'forward geocoding response',
         () async {
           final repository = ApiRepository.instance;
-          final result = await repository.performReverseGeocoding(45.45, 45.45);
+          final result = await repository.performForwardGeocoding('Dhaka');
           print(result.toString());
-          expect(result.placeName.isNotEmpty, true);
+          expect(result.attribution.isNotEmpty, true);
         },
       );
     },

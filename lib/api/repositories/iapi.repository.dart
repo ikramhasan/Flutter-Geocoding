@@ -3,4 +3,8 @@ abstract class IApiRepository {
     double latitude,
     double longitude,
   );
+
+  Future<dynamic> performForwardGeocoding(
+    String placeName,
+  );
 }
